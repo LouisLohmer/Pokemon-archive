@@ -11,11 +11,11 @@
         <nav>
             <img src="assets/pokemonLogo.png" class="pokemon-header-logo"/>
             <div class="container-darkmode-button">
+                <b><span id="messageDarkmodestatus" class="darkmodestatus "></span></b>
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkboxDarkmode" onclick="enableDarkmode()">
                     <span class="slider round"></span>
                 </label>
-                <span></span>
             </div>
         </nav>
     </header>
@@ -49,6 +49,6 @@
         </div>
         <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
     </div>
-
+    <script src="darkmode.js"></script>
   </body>
 </html>

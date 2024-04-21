@@ -6,7 +6,6 @@ body {
 
 header {
     margin-bottom: 50px;
-    background-color: #ffde00;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
@@ -31,8 +30,12 @@ h1 {
 
 .container-darkmode-button {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     padding-right: 20px;
+}
+
+.darkmodestatus {
+    font-size: 20px;
 }
 
 .container-content {
@@ -50,6 +53,7 @@ h1 {
     position: relative;
     width: 60px;
     height: 30px;
+    margin-left: 20px;
 }
 .switch input {
     opacity: 0;
@@ -77,7 +81,7 @@ h1 {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 1s;
     border-radius: 50%;
 }
 
@@ -94,7 +98,7 @@ input:checked + .slider:before {
     padding-right: 10px;
 }
 
-.filteroptions {
+.filteroptions,.filter {
     font-size: 17px;
 }
 
