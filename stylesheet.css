@@ -134,6 +134,7 @@ input:checked + .slider:before {
 }
 
 .container-pokemon {
+    background: #0075be;
     display: flex;
     flex-direction: column;
     align-items: center;
