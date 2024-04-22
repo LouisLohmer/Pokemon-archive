@@ -1,54 +1,59 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon-Archiv</title>
-    <link href="stylesheet.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-        <nav>
-            <img src="assets/pokemonLogo.png" class="pokemon-header-logo"/>
-            <div class="container-darkmode-button">
-                <b><span id="messageDarkmodestatus" class="darkmodestatus "></span></b>
-                <label class="switch">
-                    <input type="checkbox" id="checkboxDarkmode" onclick="enableDarkmode()">
-                    <span class="slider round"></span>
-                </label>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokemon-Archiv</title>
+        <link href="stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img src="assets/pokemonLogo.png" class="pokemon-header-logo" />
+                <div class="container-darkmode-button">
+                    <b><span id="messageDarkmodestatus" class="darkmodestatus"></span></b>
+                    <label class="switch">
+                        <input type="checkbox" id="checkboxDarkmode" onclick="enableDarkmode()" />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </nav>
+        </header>
+        <div class="container-content">
+            <h1>Filter anpassen</h1>
+            <div class="container-filteroptions">
+                <div class="margin-right">
+                    <label class="filtername">Filteroption</label>
+                    <select class="filter">
+                        <option class="filteroptions">Option 1</option>
+                        <option class="filteroptions">Option 2</option>
+                        <option class="filteroptions">Option 3</option>
+                    </select>
+                </div>
+                <div class="margin-right">
+                    <label class="filtername">Filteroption</label>
+                    <select class="filter">
+                        <option class="filteroptions">Option 1</option>
+                        <option class="filteroptions">Option 2</option>
+                        <option class="filteroptions">Option 3</option>
+                    </select>
+                </div>
+                <div class="margin-right">
+                    <label class="filtername">Filteroption</label>
+                    <select class="filter">
+                        <option class="filteroptions">Option 1</option>
+                        <option class="filteroptions">Option 2</option>
+                        <option class="filteroptions">Option 3</option>
+                    </select>
+                </div>
             </div>
-        </nav>
-    </header>
-    <div class="container-content">
-        <h1>Filter anpassen</h1>
-        <div class="container-filteroptions">
-            <div class="margin-right">
-                <label class="filtername">Filteroption</label>
-                <select class="filter">
-                    <option class="filteroptions">Option 1</option>
-                    <option class="filteroptions">Option 2</option>
-                    <option class="filteroptions">Option 3</option>
-                </select>
-            </div>
-            <div class="margin-right">
-                <label class="filtername">Filteroption</label>
-                <select class="filter">
-                    <option class="filteroptions">Option 1</option>
-                    <option class="filteroptions">Option 2</option>
-                    <option class="filteroptions">Option 3</option>
-                </select>
-            </div>
-            <div class="margin-right"> 
-                <label class="filtername">Filteroption</label>
-                <select class="filter">
-                    <option class="filteroptions">Option 1</option>
-                    <option class="filteroptions">Option 2</option>
-                    <option class="filteroptions">Option 3</option>
-                </select>
-            </div>
+            <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
         </div>
-        <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
-    </div>
-    <script src="darkmode.js"></script>
-  </body>
+        <div class="container-pokemonlist"></div>
+        <div class="container-pokemonlist"></div>
+        <div class="container-pokemonlist"></div>
+        <div class="container-pokemonlist"></div>
+        <script src="darkmode.js"></script>
+        <script src="pokemonlist.js"></script>
+    </body>
 </html>

@@ -46,6 +46,7 @@ h1 {
     border: 3px solid black;
     padding: 10px;
     border-radius: 20px;
+    margin-bottom: 50px;
 }
 
 /*Klasse switch ist das Label um die Checkbox*/
@@ -75,7 +76,7 @@ h1 {
 /*Klasse slider vor den Amwählen der Checkbox darstellen*/
 .slider.round:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 22px;
     width: 22px;
     left: 4px;
@@ -98,7 +99,8 @@ input:checked + .slider:before {
     padding-right: 10px;
 }
 
-.filteroptions,.filter {
+.filteroptions,
+.filter {
     font-size: 17px;
 }
 
@@ -125,6 +127,31 @@ input:checked + .slider:before {
 
 .margin-right {
     margin-right: 40px;
+}
+
+.pokemonattribute {
+    font-size: 20px;
+}
+
+.container-pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.container-pokemonlist {
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 900px;
+}
+
+.pokemonimage {
+    height: 150px;
 }
 
 /*IDs*/
