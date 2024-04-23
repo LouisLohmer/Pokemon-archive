@@ -22,13 +22,13 @@ h1 {
 }
 
 /*Klassen*/
-.pokemon-header-logo {
+.pokemon-logo {
     width: 150px;
     height: 85px;
     margin-left: 20px;
 }
 
-.container-darkmode-button {
+.content-darkmodeswitch {
     display: flex;
     align-items: center;
     padding-right: 20px;
@@ -38,7 +38,7 @@ h1 {
     font-size: 20px;
 }
 
-.container-content {
+.pokemonfilter-layout {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -109,7 +109,7 @@ input:checked + .slider:before {
     width: 90px;
 }
 
-.container-filteroptions {
+.flex {
     display: flex;
 }
 
@@ -133,18 +133,19 @@ input:checked + .slider:before {
     font-size: 20px;
 }
 
-.container-pokemon {
-    background: #0075be;
+.box-pokemon-preview {
+    background-color: #0075be;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
+    height: 250px;
+    width: 220px;
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px;
 }
 
-.container-pokemonlist {
+.pokemonlist {
     display: flex;
     justify-content: space-evenly;
     margin: auto;
@@ -152,7 +153,38 @@ input:checked + .slider:before {
 }
 
 .pokemonimage {
-    height: 150px;
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
 }
 
-/*IDs*/
+.popup-pokemondetails {
+    background-color: #0075be;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 250px;
+    top: 250px;
+    right: 560px;
+    left: 560px;
+    visibility: hidden;
+}
+
+.closePopup {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.width {
+    width: 300px;
+}

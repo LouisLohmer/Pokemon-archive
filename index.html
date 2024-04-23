@@ -9,19 +9,19 @@
     <body>
         <header>
             <nav>
-                <img src="assets/pokemonLogo.png" class="pokemon-header-logo" />
-                <div class="container-darkmode-button">
+                <img src="assets/pokemonLogo.png" class="pokemon-logo" />
+                <div class="content-darkmodeswitch">
                     <b><span id="messageDarkmodestatus" class="darkmodestatus"></span></b>
                     <label class="switch">
-                        <input type="checkbox" id="checkboxDarkmode" onclick="enableDarkmode()" />
+                        <input type="checkbox" id="switchDarkmode" onclick="enableDarkmode()" />
                         <span class="slider round"></span>
                     </label>
                 </div>
             </nav>
         </header>
-        <div class="container-content">
+        <div class="pokemonfilter-layout">
             <h1>Filter anpassen</h1>
-            <div class="container-filteroptions">
+            <div class="flex">
                 <div class="margin-right">
                     <label class="filtername">Filteroption</label>
                     <select class="filter">
@@ -49,11 +49,19 @@
             </div>
             <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
         </div>
-        <div class="container-pokemonlist"></div>
-        <div class="container-pokemonlist"></div>
-        <div class="container-pokemonlist"></div>
-        <div class="container-pokemonlist"></div>
+        <div class="pokemonlist">
+            <div class="column width"></div>
+            <div class="column width"></div>
+            <div class="column width"></div>
+        </div>
+        <div class="popup-pokemondetails">
+            <button class="closePopup" onclick="hidePokemondetails()">&#x2715;</button>
+            <div class="column">
+                <span class="pokemonattribute" id="ability"></span>
+            </div>
+        </div>
         <script src="darkmode.js"></script>
         <script src="pokemonlist.js"></script>
+        <script src="pokemondetails.js"></script>
     </body>
 </html>

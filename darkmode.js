@@ -1,7 +1,7 @@
 //Diese Script dient dem Zweck, das Pokemon-Archive auf Knopfdruck in den Darkmode zu wechseln
 function enableDarkmode() {
     //Entsprechende Naricht im Frontend ausgeben, wenn Darkmode enabled oder abled ist
-    let checkbox = document.getElementById('checkboxDarkmode');
+    let checkbox = document.getElementById('switchDarkmode');
     let spanDarkmodestatus = document.getElementById('messageDarkmodestatus');
     if (checkbox.checked === true) {
         spanDarkmodestatus.innerHTML = 'Darkmode aktiviert';
@@ -15,8 +15,8 @@ function enableDarkmode() {
         let header = document.getElementsByTagName('header');
         header[0].style.backgroundColor = '#818589';
         header[0].style.transition = '1.5s';
-        //.container-content und Inhalt
-        let containerContent = document.querySelector('.container-content');
+        //.pokemonfilter-layout und Inhalt
+        let containerContent = document.querySelector('.pokemonfilter-layout');
         containerContent.style.color = 'white';
         containerContent.style.borderColor = 'white';
         containerContent.style.transition = '1.5s';
@@ -35,11 +35,15 @@ function enableDarkmode() {
             selectInput[i].style.transition = '1.5s';
         }
         //containter-pokemon und Inhalt
-        let containerPokemon = document.querySelectorAll('.container-pokemon');
+        let containerPokemon = document.querySelectorAll('.box-pokemon-preview');
         for (let i = 0; i < containerPokemon.length; i++) {
             containerPokemon[i].style.color = 'white';
             containerPokemon[i].style.backgroundColor = '#5c5470';
         }
+        //popupFenster und Inhalt
+        let popupWindow = document.querySelector('.popup-pokemondetails');
+        popupWindow.style.color = 'white';
+        popupWindow.style.backgroundColor = '#5c5470';
     } else {
         spanDarkmodestatus.innerHTML = 'Darkmode deaktiviert';
         spanDarkmodestatus.style.color = '#a3a3a3';
@@ -50,8 +54,8 @@ function enableDarkmode() {
         //header
         let header = document.getElementsByTagName('header');
         header[0].style.backgroundColor = '#ffde00';
-        //.container-content und Inhalt
-        let containerContent = document.querySelector('.container-content');
+        //.pokemonfilter-layout und Inhalt
+        let containerContent = document.querySelector('.pokemonfilter-layout');
         containerContent.style.color = 'black';
         containerContent.style.borderColor = 'black';
         //Optionfelder aus dem Select-Imput-Feldern
@@ -67,11 +71,15 @@ function enableDarkmode() {
             selectInput[i].style.color = 'black';
         }
         //containter-pokemon und Inhalt
-        let containerPokemon = document.querySelectorAll('.container-pokemon');
+        let containerPokemon = document.querySelectorAll('.box-pokemon-preview');
         for (let i = 0; i < containerPokemon.length; i++) {
             containerPokemon[i].style.color = 'black';
             containerPokemon[i].style.backgroundColor = '#0075be';
         }
+        //popupFenster und Inhalt
+        let popupWindow = document.querySelector('.popup-pokemondetails');
+        popupWindow.style.color = 'black';
+        popupWindow.style.backgroundColor = '#0075be';
     }
 }
 

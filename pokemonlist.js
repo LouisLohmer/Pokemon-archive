@@ -1,16 +1,18 @@
-//Dieses Script dient dem Zweck, die Pokemon-Daten im Frontend darzustellen
+//Dieses Script dient dem Zweck, die PokemonlistecheckboxDarkmode im Frontend darzustellen
 function fetchAndDisplayPokemondata() {
-    fetch('https://pokeapi.co/api/v2/pokemon-species')
+    fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1023')
         .then(function (response) {
             if (response.ok) {
                 return response.json();
             }
         })
         .then(function (json) {
+            indexRow = 0;
             for (let i = 0; i < json.results.length; i++) {
                 //Pro Schleifendurchlauf eine Container für das Pokemon erstellen
                 let containerPokemon = document.createElement('div');
-                containerPokemon.classList.add('container-pokemon');
+                containerPokemon.classList.add('box-pokemon-preview');
+                containerPokemon.value = i;
 
                 //Pro Schleifendurchgang ein Bild, sowie Pokemonname und Pokeindex für das Pokemon erstellen
                 let pokeindex = document.createElement('span');
@@ -23,28 +25,29 @@ function fetchAndDisplayPokemondata() {
                     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
                     (i + 1) +
                     '.png';
+                pokemonImage.addEventListener('click', displayPokemondetails);
 
                 let pokemonname = document.createElement('span');
                 pokemonname.classList.add('pokemonattribute');
-                pokemonname.innerHTML = '#' + i;
+                pokemonname.innerHTML = '#' + (i + 1);
 
                 //Daten im Frontend darstellen
                 containerPokemon.appendChild(pokemonImage);
                 containerPokemon.appendChild(pokeindex);
                 containerPokemon.appendChild(pokemonname);
 
-                let containerPokemonlist = document.querySelectorAll('.container-pokemonlist');
-                if (i < 5) {
-                    containerPokemonlist[0].appendChild(containerPokemon);
-                } else if (i > 4 && i < 10) {
-                    containerPokemonlist[1].appendChild(containerPokemon);
-                } else if (i > 9 && i < 15) {
-                    containerPokemonlist[2].appendChild(containerPokemon);
-                } else if (i > 14 && i <= 19) {
-                    containerPokemonlist[3].appendChild(containerPokemon);
+                let pokemonlistRow = document.querySelectorAll('.column');
+                if (i > 0) {
+                    if (indexRow !== 2) {
+                        indexRow += 1;
+                    } else if (indexRow === 2) {
+                        indexRow = 0;
+                    }
                 }
+                pokemonlistRow[indexRow].appendChild(containerPokemon);
             }
-        });
+        })
+        .catch();
 }
 
 fetchAndDisplayPokemondata();
