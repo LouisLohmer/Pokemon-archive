@@ -21,6 +21,12 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 0;
+}
+
 /*Klassen*/
 .pokemon-logo {
     width: 150px;
@@ -131,6 +137,7 @@ input:checked + .slider:before {
 
 .pokemonattribute {
     font-size: 20px;
+    padding-bottom: 5px;
 }
 
 .box-pokemon-preview {
@@ -160,20 +167,19 @@ input:checked + .slider:before {
 
 .popup-pokemondetails {
     background-color: #0075be;
-    width: 300px;
-    height: 300px;
     border-radius: 15px;
     position: fixed;
+    width: 550px;
     bottom: 250px;
     top: 250px;
-    right: 560px;
-    left: 560px;
+    right: 445px;
+    left: 445px;
     visibility: hidden;
 }
 
 .closePopup {
     background-color: rgba(0, 0, 0, 0);
-    color: white;
+    /* color: white; */
     border: none;
     padding: 10px;
     font-size: 20px;
@@ -182,7 +188,8 @@ input:checked + .slider:before {
 .column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    padding: 20px;
 }
 
 .width {

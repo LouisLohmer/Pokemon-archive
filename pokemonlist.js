@@ -12,7 +12,7 @@ function fetchAndDisplayPokemondata() {
                 //Pro Schleifendurchlauf eine Container für das Pokemon erstellen
                 let containerPokemon = document.createElement('div');
                 containerPokemon.classList.add('box-pokemon-preview');
-                containerPokemon.value = i;
+                containerPokemon.value = i + 1;
 
                 //Pro Schleifendurchgang ein Bild, sowie Pokemonname und Pokeindex für das Pokemon erstellen
                 let pokeindex = document.createElement('span');

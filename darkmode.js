@@ -44,6 +44,8 @@ function enableDarkmode() {
         let popupWindow = document.querySelector('.popup-pokemondetails');
         popupWindow.style.color = 'white';
         popupWindow.style.backgroundColor = '#5c5470';
+        let closePopupButton = document.querySelector('.closePopup');
+        closePopupButton.style.color = 'white';
     } else {
         spanDarkmodestatus.innerHTML = 'Darkmode deaktiviert';
         spanDarkmodestatus.style.color = '#a3a3a3';
@@ -79,7 +81,9 @@ function enableDarkmode() {
         //popupFenster und Inhalt
         let popupWindow = document.querySelector('.popup-pokemondetails');
         popupWindow.style.color = 'black';
-        popupWindow.style.backgroundColor = '#0075be';
+        popupWindow.style.backgroundColor = '#ffde00';
+        let closePopupButton = document.querySelector('.closePopup');
+        closePopupButton.style.color = 'black';
     }
 }
 
