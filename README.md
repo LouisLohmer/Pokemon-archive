@@ -1,2 +1,2 @@
 # Pokemon-archive
-This repository contains a selfmade archive full of Pokémon, which are fetched using the Poké-API (https://pokeapi.co/).
+A Tutorial on how to use tes Pokemon-Archive/Pokedex will be released soon...
