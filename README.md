@@ -8,7 +8,7 @@ By clicking on the slider in the top-right corner of the Pokedex, you can enable
 
 <div align="center>
   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/c936cb12-d282-4f77-9297-888590aa7fbc" width="400" height="350"/>
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/690802f9-935e-4e6b-9454-0b422380156a" width="400" height="350" />
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/690802f9-935e-4e6b-9454-0b422380156a" width="400" height="350"/>
 </div>
 
 ## Display pokemon-details
