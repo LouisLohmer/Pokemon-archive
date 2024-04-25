@@ -166,20 +166,15 @@ input:checked + .slider:before {
 }
 
 .popup-pokemondetails {
-    background-color: #0075be;
     border-radius: 15px;
-    position: fixed;
-    width: 550px;
-    bottom: 250px;
-    top: 250px;
-    right: 445px;
-    left: 445px;
     visibility: hidden;
+    position: fixed;
+    top: 35%;
+    left: 43%;
 }
 
 .closePopup {
     background-color: rgba(0, 0, 0, 0);
-    /* color: white; */
     border: none;
     padding: 10px;
     font-size: 20px;
