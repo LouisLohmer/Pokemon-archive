@@ -23,31 +23,91 @@
             <h1>Filter anpassen</h1>
             <div class="flex">
                 <div class="margin-right">
-                    <label class="filtername">Filteroption</label>
-                    <select class="filter">
-                        <option class="filteroptions">Option 1</option>
-                        <option class="filteroptions">Option 2</option>
-                        <option class="filteroptions">Option 3</option>
-                    </select>
+                    <b><span class="filtername">Pokemontyp</span></b>
+                    <div class="center">
+                        <label class="filteroptions">grass</label>
+                        <input type="checkbox" id="typeGrass"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">poison</label>
+                        <input type="checkbox" id="typePoison"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">fire</label>
+                        <input type="checkbox" id="typeFire"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">water</label>
+                        <input type="checkbox" id="typeWater"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">bug</label>
+                        <input type="checkbox" id="typeBug"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">flying</label>
+                        <input type="checkbox" id="typeFlying"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">ground</label>
+                        <input type="checkbox" id="typeGround"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">fighting</label>
+                        <input type="checkbox" id="typeFighting"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">rock</label>
+                        <input type="checkbox" id="typeRock"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">ghost</label>
+                        <input type="checkbox" id="typeGhost"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">electric</label>
+                        <input type="checkbox" id="typeElectric"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">psychic</label>
+                        <input type="checkbox" id="typePsychic"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">normal</label>
+                        <input type="checkbox" id="typeNormal"/>
+                    </div>
                 </div>
                 <div class="margin-right">
-                    <label class="filtername">Filteroption</label>
-                    <select class="filter">
-                        <option class="filteroptions">Option 1</option>
-                        <option class="filteroptions">Option 2</option>
-                        <option class="filteroptions">Option 3</option>
-                    </select>
+                    <b><span class="filtername">Pokemonitems</span></b>
+                    <div class="center">
+                        <label class="filteroptions">None</label>
+                        <input type="checkbox" id="itemNone"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">Items</label>
+                        <input type="checkbox" id="itemRandomItems"/>
+                    </div>
                 </div>
                 <div class="margin-right">
-                    <label class="filtername">Filteroption</label>
-                    <select class="filter">
-                        <option class="filteroptions">Option 1</option>
-                        <option class="filteroptions">Option 2</option>
-                        <option class="filteroptions">Option 3</option>
-                    </select>
+                    <b><span class="filtername">Pokemongewicht</span></b>
+                    <div class="center">
+                        <label class="filteroptions">unter 10Kg</label>
+                        <input type="checkbox" id="weightBelowTen"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions"> 10Kg bis 100Kg</label>
+                        <input type="checkbox" id="weightUnderHundred"/>
+                    </div>
+                    <div class="center">
+                        <label class="filteroptions">über 100Kg</label>
+                        <input type="checkbox" id="weightOverHundred"/>
+                    </div>
                 </div>
             </div>
-            <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
+            <div class="column-center">
+                <button class="filterPokemon" onclick="filterPokemon()">Filter anwenden</button>
+                <span class="watermark">Made by LonelyStreetracer with <span class="heart">❤</span></span>
+            </div>
         </div>
         <div class="pokemonlist">
             <div class="column width"></div>

@@ -44,11 +44,22 @@ h2 {
     font-size: 20px;
 }
 
+.filterPokemon {
+    margin-top: 20px;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+}.filterPokemon:hover {
+    padding: 15px;
+    border: 30px;
+}
+
 .pokemonfilter-layout {
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 400px;
+    width: 530px;
     border: 3px solid black;
     padding: 10px;
     border-radius: 20px;
@@ -105,24 +116,28 @@ input:checked + .slider:before {
     padding-right: 10px;
 }
 
-.filteroptions,
-.filter {
+.filteroptions {
     font-size: 17px;
-}
-
-.filter {
-    height: 22px;
-    width: 90px;
 }
 
 .flex {
     display: flex;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .watermark {
     font-size: 15px;
     font-family: monospace;
-    text-align: center;
     padding-top: 20px;
 }
 
@@ -133,6 +148,8 @@ input:checked + .slider:before {
 
 .margin-right {
     margin-right: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .pokemonattribute {
