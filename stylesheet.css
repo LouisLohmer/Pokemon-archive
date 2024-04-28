@@ -50,6 +50,7 @@ h2 {
     padding: 10px;
     font-size: 18px;
     border: none;
+    cursor: pointer;
 }.filterPokemon:hover {
     padding: 15px;
     border: 30px;
