@@ -1,11 +1,13 @@
-//Dieses Script dient dazu, Pokemondetails auf den Klick auf einen Pokemoncontainer darzustellen
-
 function displayPokemondetails(event) {
-    //Diese Funktion wird über einen Eventlistener über eine Klick auf die Pokemon-Container ausgeführt
+    /**
+     * Diese Funktion wird über einen Eventlistener über einen Klick auf das Pokemonbild ausgeführt.
+     * Sie dient dem anzeigen der jeweiligen Pokemondetails bei Klick auf das Pokemonbild.
+     */
     //Popup-Fenster bei Klick öffnen
     let popUpWindow = document.querySelector('.popup-pokemondetails');
     popUpWindow.style.visibility = 'visible';
 
+    //Value des geclickten Containers auslesen, damit exakt diese Details gefetched werden können
     let pokemonId = event.target.parentNode.value;
     //Pokemondetails in Popup-Fenster darstellen
     fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonId)
@@ -73,7 +75,7 @@ function displayPokemondetails(event) {
 }
 
 function hidePokemondetails() {
-    //Popupfenster mit Button schließen
+    //Popupfenster mit Button in der oberen, linken Ecke schließen
     let popUpWindow = document.querySelector('.popup-pokemondetails');
     popUpWindow.style.visibility = 'hidden';
 }

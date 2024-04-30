@@ -1,5 +1,5 @@
-//Dieses Script dient dem Zweck, die Pokemonliste im Frontend darzustellen und zu filtern
 function fetchAndDisplayPokemondata() {
+    //Pokemon und Pokemondaten fetchen und darstellen
     fetch('https://pokeapi.co/api/v2/pokemon?offset=0&limit=1023')
         .then(function (response) {
             if (response.ok) {
@@ -9,10 +9,10 @@ function fetchAndDisplayPokemondata() {
         .then(function (json) {
             indexRow = 0;
             for (let i = 0; i < json.results.length; i++) {
-                //Pro Schleifendurchlauf eine Container für das Pokemon erstellen
-                let containerPokemon = document.createElement('div');
-                containerPokemon.classList.add('box-pokemon-preview');
-                containerPokemon.value = i + 1;
+                //Pro Schleifendurchlauf einen Container für das Pokemon erstellen
+                let pokemonPreviewbox = document.createElement('div');
+                pokemonPreviewbox.classList.add('box-pokemon-preview');
+                pokemonPreviewbox.value = i + 1;
 
                 //Pro Schleifendurchgang ein Bild, sowie Pokemonname und Pokeindex für das Pokemon erstellen
                 let pokeindex = document.createElement('span');
@@ -31,11 +31,12 @@ function fetchAndDisplayPokemondata() {
                 pokemonname.classList.add('pokemonattribute');
                 pokemonname.innerHTML = '#' + (i + 1);
 
-                //Daten im Frontend darstellen
-                containerPokemon.appendChild(pokemonImage);
-                containerPokemon.appendChild(pokeindex);
-                containerPokemon.appendChild(pokemonname);
+                //Daten im Frontend darstellen, indem die Elemente zum Container appended werden und dieser vom Body appended wird
+                pokemonPreviewbox.appendChild(pokemonImage);
+                pokemonPreviewbox.appendChild(pokeindex);
+                pokemonPreviewbox.appendChild(pokemonname);
 
+                //Pokemon-Container geordnet in dreier-Reihen darstellen und die Variable indexRow entsprechend pro Schleifendurchlauf umstellen
                 let pokemonlistRow = document.querySelectorAll('.column');
                 if (i > 0) {
                     if (indexRow !== 2) {
@@ -44,18 +45,17 @@ function fetchAndDisplayPokemondata() {
                         indexRow = 0;
                     }
                 }
-                pokemonlistRow[indexRow].appendChild(containerPokemon);
+                pokemonlistRow[indexRow].appendChild(pokemonPreviewbox);
             }
         })
         .catch();
 }
 
 function filterPokemon() {
-    //Pokemon-Preview-container und darkmode-Checkbox
-    let pokemonPreviews = document.querySelectorAll(".box-pokemon-preview");
-    let checkboxDarkmode = document.getElementById('switchDarkmode');
-
-    //Pokemontyp-Filter
+    //Pokemon filtern nach angewählten Optionen
+    let pokemonPreviewboxes = document.querySelectorAll(".box-pokemon-preview");
+    let darkmodeSwitch = document.getElementById('switchDarkmode');
+    //Pokemontyp-Radiobuttons für die Filter
     let filterTypeGrass = document.getElementById("typeGrass");
     let filterTypePoison = document.getElementById("typePoison");
     let filterTypeFire = document.getElementById("typeFire");
@@ -69,19 +69,13 @@ function filterPokemon() {
     let filterTypeElectric = document.getElementById("typeElectric");
     let filterTypePsychic = document.getElementById("typePsychic");
     let filterTypeNormal = document.getElementById("typeNormal");
-    
-    //Pokemonitems-Filter
-    let filterItemNone = document.getElementById("itemNone");
-    let filteritemsItems = document.getElementById("itemRandomItems");
-
-    //Pokemongewicht-Filter
-    let filterWeightUnderTen = document.getElementById("weightBelowTen");
-    let filterWeightUnderHundred = document.getElementById("weightUnderHundred");
-    let filterWeightOverHundred = document.getElementById("weightOverHundred");
+    //Pokemongewicht-Radiobuttons für die Filter
+    let filterWeightUnderTenKilogram = document.getElementById("weightBelowTen");
+    let filterWeightTenTillHundredKilogram = document.getElementById("weightUnderHundred");
+    let filterWeightOverHundredKilogram = document.getElementById("weightOverHundred");
 
     //Gesamtanzahl aller dargestellten Pokemon iterativ durchgehen
-    let test = 0;
-    for (let i = 0;i < pokemonPreviews.length;i++) {
+    for (let i = 0;i < pokemonPreviewboxes.length;i++) {
         let urlFetchAPI ='https://pokeapi.co/api/v2/pokemon/' + (i+1);
         //Daten vom aktuellen Pokemon fetchen
         fetch(urlFetchAPI)
@@ -90,76 +84,40 @@ function filterPokemon() {
                 return response.json();
             }
         }).then(function(json) {
-            //Auf angegebene Filter prüfen und Pokemon filtern
-            //Gewichtsfilter für Pokemon unter 10Kg
-            if (filterWeightUnderTen.checked === true && (json.weight / 10) < 10) {
-                //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von darkmode und whitemode herausgehoben
-                if (checkboxDarkmode.checked === true) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.add("filtered");
-                            pokemonPreviews[a].style.background = '#818589';
+            //Auf angegebene Gewichtsfilter prüfen. Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von darkmode und whitemode herausgehoben
+            if (filterWeightUnderTenKilogram.checked === true && (json.weight / 10) < 10 || 
+                filterWeightOverHundredKilogram.checked === true && (json.weight / 10) > 100 || 
+                filterWeightTenTillHundredKilogram.checked === true && ((json.weight / 10) > 10 && (json.weight / 10) <= 100)) {
+                if (darkmodeSwitch.checked === true) {
+                    for (let a = 0;a < pokemonPreviewboxes.length;a++) {
+                        if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+                            //Klasse filtered zum Element hinzufügen, damit die gefilterten Pokemon farblich anders gefärbt werden können
+                            pokemonPreviewboxes[a].classList.add("filtered");
+                            pokemonPreviewboxes[a].style.background = '#818589';
                         }
                     }
-                } else if (checkboxDarkmode.checked === false) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.add("filtered");
-                            pokemonPreviews[a].style.background = '#ffde00';
-                        }
-                    }
-                }
-            } else {
-                //Wenn das Pokemon nicht vom Filter betroffen ist, wird es wieder farblich zurückgesetzt
-                if (checkboxDarkmode.checked === true) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.remove("filtered");
-                            pokemonPreviews[a].style.background = '#5c5470';
-                        }
-                    }
-                } else if (checkboxDarkmode.checked === false) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.remove("filtered");
-                            pokemonPreviews[a].style.background = '#0075be';
-                        }
-                    }
-                }
-            }
-            
-            //Gewichtsfilter für Pokemon über 100Kg
-            if (filterWeightOverHundred.checked === true && (json.weight / 10) > 100) {
-                //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von darkmode und whitemode herausgehoben
-                if (checkboxDarkmode.checked === true) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.add("filtered");
-                            pokemonPreviews[a].style.background = '#818589';
-                        }
-                    }
-                } else if (checkboxDarkmode.checked === false) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.add("filtered");
-                            pokemonPreviews[a].style.background = '#ffde00';
+                } else if (darkmodeSwitch.checked === false) {
+                    for (let a = 0;a < pokemonPreviewboxes.length;a++) {
+                        if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+                            pokemonPreviewboxes[a].classList.add("filtered");
+                            pokemonPreviewboxes[a].style.background = '#ffde00';
                         }
                     }
                 }
             } else {
-                //Wenn das Pokemon nicht vom Filter betroffen ist, wird es wieder farblich zurückgesetzt
-                if (checkboxDarkmode.checked === true) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.remove("filtered");
-                            pokemonPreviews[a].style.background = '#5c5470';
+                //Wenn das Pokemon nicht vom Filter betroffen ist, wird es wieder farblich und anhand der hinzugefügten Klassen zurückgesetzt
+                if (darkmodeSwitch.checked === true) {
+                    for (let a = 0;a < pokemonPreviewboxes.length;a++) {
+                        if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+                            pokemonPreviewboxes[a].classList.remove("filtered");
+                            pokemonPreviewboxes[a].style.background = '#5c5470';
                         }
                     }
-                } else if (checkboxDarkmode.checked === false) {
-                    for (let a = 0;a < pokemonPreviews.length;a++) {
-                        if (pokemonPreviews[a].childNodes[1].innerHTML === json.name) {
-                            pokemonPreviews[a].classList.remove("filtered");
-                            pokemonPreviews[a].style.background = '#0075be';
+                } else if (darkmodeSwitch.checked === false) {
+                    for (let a = 0;a < pokemonPreviewboxes.length;a++) {
+                        if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+                            pokemonPreviewboxes[a].classList.remove("filtered");
+                            pokemonPreviewboxes[a].style.background = '#0075be';
                         }
                     }
                 }
