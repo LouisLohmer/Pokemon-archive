@@ -225,3 +225,12 @@ input:checked + .slider:before {
 .width {
   width: 300px;
 }
+
+/*IDs*/
+#statusmessageFilter {
+  font-size: 17px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 25px;
+  visibility: hidden;
+}

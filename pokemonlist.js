@@ -79,6 +79,29 @@ function filterPokemon() {
   let filterWeightOverHundredKilogram =
     document.getElementById("weightOverHundred");
 
+  //Nachricht an den Nutzer ausgeben, das kein Filter ausgewählt wurde
+  let filteroptions = document.querySelectorAll('input[name="filteroption"]');
+  let selectedFilteroptions = 0;
+  for (let i = 0; i < filteroptions.length; i++) {
+    if (filteroptions[i].checked) {
+      selectedFilteroptions += 1;
+    }
+  }
+  if (selectedFilteroptions === 0) {
+    //Wenn kein Filter ausgewählt ist, wird der Nutzer darüber informiert und die Funktion bricht ab
+    document.getElementById("statusmessageFilter").style.visibility = "visible";
+    document.getElementById("statusmessageFilter").style.width = "180px";
+    document.getElementById("statusmessageFilter").innerHTML =
+      "Wähle einen Filter aus!";
+    return;
+  } else {
+    //Wenn einer der Filter ausgewählt ist, wird der Nutzer darüber informiert und der Filter wird angewendet
+    document.getElementById("statusmessageFilter").style.visibility = "visible";
+    document.getElementById("statusmessageFilter").style.width = "220px";
+    document.getElementById("statusmessageFilter").innerHTML =
+      "Filter erfolgreich angewendet";
+  }
+
   //Gesamtanzahl aller dargestellten Pokemon iterativ durchgehen
   for (let i = 0; i < pokemonPreviewboxes.length; i++) {
     let urlFetchAPI = "https://pokeapi.co/api/v2/pokemon/" + (i + 1);
@@ -90,17 +113,38 @@ function filterPokemon() {
         }
       })
       .then(function (json) {
+        //Vor dem Filtern alle vorherig gefilterten Pokemon farblich zurücksetzen
+        if (darkmodeSwitch.checked) {
+          for (let a = 0; a < pokemonPreviewboxes.length; a++) {
+            if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+              //Klasse filtered vom Element entfernen, wenn diese existiert, damit nur die korrekten Pokemon anders gefärbt werden
+              if (pokemonPreviewboxes[a].classList.contains("filtered")) {
+                pokemonPreviewboxes[a].classList.remove("filtered");
+              }
+              pokemonPreviewboxes[a].style.background = "#5c5470";
+            }
+          }
+        } else if (!darkmodeSwitch.checked) {
+          for (let a = 0; a < pokemonPreviewboxes.length; a++) {
+            if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
+              //Klasse filtered vom Element entfernen, wenn diese existiert, damit nur die korrekten Pokemon anders gefärbt werden
+              if (pokemonPreviewboxes[a].classList.contains("filtered")) {
+                pokemonPreviewboxes[a].classList.remove("filtered");
+              }
+              pokemonPreviewboxes[a].style.background = "#0075be";
+            }
+          }
+        }
+
         //Auf angegebene Gewichtsfilter prüfen
         if (
-          (filterWeightUnderTenKilogram.checked === true &&
-            json.weight / 10 < 10) ||
-          (filterWeightOverHundredKilogram.checked === true &&
-            json.weight / 10 > 100) ||
-          (filterWeightTenTillHundredKilogram.checked === true &&
+          (filterWeightUnderTenKilogram.checked && json.weight / 10 < 10) ||
+          (filterWeightOverHundredKilogram.checked && json.weight / 10 > 100) ||
+          (filterWeightTenTillHundredKilogram.checked &&
             json.weight / 10 >= 10 &&
             json.weight / 10 <= 100)
         ) {
-          if (darkmodeSwitch.checked === true) {
+          if (darkmodeSwitch.checked) {
             //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von darkmode herausgehoben
             for (let a = 0; a < pokemonPreviewboxes.length; a++) {
               if (
@@ -111,7 +155,7 @@ function filterPokemon() {
                 pokemonPreviewboxes[a].style.background = "#818589";
               }
             }
-          } else if (darkmodeSwitch.checked === false) {
+          } else if (!darkmodeSwitch.checked) {
             //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von whitemode herausgehoben
             for (let a = 0; a < pokemonPreviewboxes.length; a++) {
               if (
@@ -125,73 +169,73 @@ function filterPokemon() {
           }
           //Auf angegebene Typfilter prüfen
         } else if (
-          filterTypeGrass.checked === true ||
-          filterTypePoison.checked === true ||
-          filterTypeFire.checked === true ||
-          filterTypeWater.checked === true ||
-          filterTypeBug.checked === true ||
-          filterTypeFlying.checked === true ||
-          filterTypeGround.checked === true ||
-          filterTypeFighting.checked === true ||
-          filterTypeRock.checked === true ||
-          filterTypeGhost.checked === true ||
-          filterTypeElectric.checked === true ||
-          filterTypePsychic.checked === true ||
-          filterTypeNormal.checked === true ||
-          filterTypeDragon.checked === true ||
-          filterTypeFairy.checked === true ||
-          filterTypeIce.checked === true
+          filterTypeGrass.checked ||
+          filterTypePoison.checked ||
+          filterTypeFire.checked ||
+          filterTypeWater.checked ||
+          filterTypeBug.checked ||
+          filterTypeFlying.checked ||
+          filterTypeGround.checked ||
+          filterTypeFighting.checked ||
+          filterTypeRock.checked ||
+          filterTypeGhost.checked ||
+          filterTypeElectric.checked ||
+          filterTypePsychic.checked ||
+          filterTypeNormal.checked ||
+          filterTypeDragon.checked ||
+          filterTypeFairy.checked ||
+          filterTypeIce.checked
         ) {
           for (let i = 0; i < json.types.length; i++) {
             if (
               (json.types[i].type.name === "grass" &&
                 filterTypeGrass.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "poison" &&
                 filterTypePoison.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fire" &&
                 filterTypeFire.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "water" &&
                 filterTypeWater.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "bug" &&
                 filterTypeBug.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "flying" &&
                 filterTypeFlying.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ground" &&
                 filterTypeGround.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fighting" &&
                 filterTypeFighting.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "rock" &&
                 filterTypeRock.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ghost" &&
                 filterTypeGhost.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "electric" &&
                 filterTypeElectric.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "psychic" &&
                 filterTypePsychic.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "normal" &&
                 filterTypeNormal.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "dragon" &&
                 filterTypeDragon.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fairy" &&
                 filterTypeFairy.checked &&
-                darkmodeSwitch.checked === true) ||
+                darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ice" &&
                 filterTypeIce.checked &&
-                darkmodeSwitch.checked === true)
+                darkmodeSwitch.checked)
             ) {
               //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von darkmode herausgehoben
               for (let a = 0; a < pokemonPreviewboxes.length; a++) {
@@ -206,52 +250,52 @@ function filterPokemon() {
             } else if (
               (json.types[i].type.name === "grass" &&
                 filterTypeGrass.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "poison" &&
                 filterTypePoison.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fire" &&
                 filterTypeFire.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "water" &&
                 filterTypeWater.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "bug" &&
                 filterTypeBug.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "flying" &&
                 filterTypeFlying.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ground" &&
                 filterTypeGround.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fighting" &&
                 filterTypeFighting.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "rock" &&
                 filterTypeRock.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ghost" &&
                 filterTypeGhost.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "electric" &&
                 filterTypeElectric.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "psychic" &&
                 filterTypePsychic.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "normal" &&
                 filterTypeNormal.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "dragon" &&
                 filterTypeDragon.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "fairy" &&
                 filterTypeFairy.checked &&
-                darkmodeSwitch.checked === false) ||
+                !darkmodeSwitch.checked) ||
               (json.types[i].type.name === "ice" &&
                 filterTypeIce.checked &&
-                darkmodeSwitch.checked === false)
+                !darkmodeSwitch.checked)
             ) {
               //Wenn das Pokemon vom Filter betroffen ist, wird dies farblich entprechend von whitemode herausgehoben
               for (let a = 0; a < pokemonPreviewboxes.length; a++) {
@@ -262,27 +306,6 @@ function filterPokemon() {
                   pokemonPreviewboxes[a].classList.add("filtered");
                   pokemonPreviewboxes[a].style.background = "#ffde00";
                 }
-              }
-            }
-          }
-        } else {
-          //Wenn das Pokemon nicht vom Filter betroffen ist, wird es wieder farblich und anhand der hinzugefügten Klassen zurückgesetzt
-          if (darkmodeSwitch.checked === true) {
-            for (let a = 0; a < pokemonPreviewboxes.length; a++) {
-              if (
-                pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name
-              ) {
-                pokemonPreviewboxes[a].classList.remove("filtered");
-                pokemonPreviewboxes[a].style.background = "#5c5470";
-              }
-            }
-          } else if (darkmodeSwitch.checked === false) {
-            for (let a = 0; a < pokemonPreviewboxes.length; a++) {
-              if (
-                pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name
-              ) {
-                pokemonPreviewboxes[a].classList.remove("filtered");
-                pokemonPreviewboxes[a].style.background = "#0075be";
               }
             }
           }
