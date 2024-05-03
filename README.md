@@ -21,8 +21,9 @@ To close the popup-Window, use the close-Button in the top-left corner, which lo
 
 ## Use filters in order to search for specific pokemon
 You can click each radiobutton to filter for the pokemontype or the pokemonweight, the radiobutton than appears blue. Click the Button that´s labeled with "Filter anwenden" in order to finally filter the given pokemon, if a pokemon fits into the filter it will appear yellow in whitemode or grey in darkmode. The message above the button will either tell you, that the pokemon are filtered succesfully or to select a filter, if you didn't do it before pressing the button.
-<div align="center">
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/35dacadf-d788-40dc-960b-490ffe1d6e3a" width="300" height="350" />
+<div float="left">
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/771d94ff-2acf-4c61-bcb6-e58a2a6bdda6" width="300" height="350" />
+   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/08495102-748e-4368-bcdc-080baf0a8318" width="300" height="350" />
 </div>
 <div align="center">
   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/8acf2662-bf36-488a-84ee-d589514d7fb5" height="350" width="300" />
