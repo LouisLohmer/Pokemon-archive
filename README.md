@@ -5,11 +5,12 @@ You are also able to see the details of each pokemon regarding attacks, abilitie
 
 ## Enable and able darkmode and whitemode
 By clicking on the slider in the top-right corner of the Pokedex, you can enable darkmode. The frontend then will transition into a more darker colorway. If it's in darkmode and you want it be in whitemode again, just click the slider again and the frontend will have a more colorful and white colorway again
-
 <div align="center">
+  <div float="left">
   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/c936cb12-d282-4f77-9297-888590aa7fbc" width="400" height="350"/>
+  <div align="center"><img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/690802f9-935e-4e6b-9454-0b422380156a" width="400" height="350"/></div>
 </div>
-<div align="center"><img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/690802f9-935e-4e6b-9454-0b422380156a" width="400" height="350"/></div>
+</div>
 
 ## Display pokemon-details
 Each Pokemon has it's own preview container, which contains a name, a pixelart-image and it's number in the pokedex. By hovering over the image, your cursor will turn into a pointer and by clicking it, a popup-Window will display the pokemondetails.
