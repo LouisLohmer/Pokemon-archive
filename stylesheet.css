@@ -19,6 +19,7 @@ header nav {
 h1 {
   font-size: 30px;
   text-align: center;
+  margin-top: 0;
 }
 
 h2 {
@@ -63,7 +64,7 @@ h2 {
   margin: auto;
   width: 350px;
   border: 3px solid black;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   margin-bottom: 50px;
 }
@@ -95,7 +96,7 @@ h2 {
 /*Klasse slider vor den Amwählen der Checkbox darstellen*/
 .slider.round:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 22px;
   width: 22px;
   left: 4px;
