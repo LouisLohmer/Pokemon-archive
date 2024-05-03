@@ -25,7 +25,7 @@ You can click each radiobutton to filter for the pokemontype or the pokemonweigh
   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/35dacadf-d788-40dc-960b-490ffe1d6e3a" width="400" height="350" />
 </div>
 <div align="center">
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/8acf2662-bf36-488a-84ee-d589514d7fb5" height="350" />
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/8acf2662-bf36-488a-84ee-d589514d7fb5" height="350" width="400" />
 </div>
 
 
