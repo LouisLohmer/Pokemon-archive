@@ -53,6 +53,7 @@ function fetchAndDisplayPokemondata() {
 
 function filterPokemon() {
   //Pokemon filtern nach angewählten Optionen
+  //Frontend-Elemente, die für die Iteration und Farbdarstellung notwendig sind
   let pokemonPreviewboxes = document.querySelectorAll(".box-pokemon-preview");
   let darkmodeSwitch = document.getElementById("switchDarkmode");
   //Pokemontyp-Radiobuttons für die Filter
@@ -79,7 +80,7 @@ function filterPokemon() {
   let filterWeightOverHundredKilogram =
     document.getElementById("weightOverHundred");
 
-  //Nachricht an den Nutzer ausgeben, das kein Filter ausgewählt wurde
+  //Entsprechende Nachricht an den Nutzer ausgeben
   let filteroptions = document.querySelectorAll('input[name="filteroption"]');
   let selectedFilteroptions = 0;
   for (let i = 0; i < filteroptions.length; i++) {
@@ -113,7 +114,7 @@ function filterPokemon() {
         }
       })
       .then(function (json) {
-        //Vor dem Filtern alle vorherig gefilterten Pokemon farblich zurücksetzen
+        //Vor dem Filtern alle Pokemon farblich und anhand der Klassen zurücksetzen zurücksetzen
         if (darkmodeSwitch.checked) {
           for (let a = 0; a < pokemonPreviewboxes.length; a++) {
             if (pokemonPreviewboxes[a].childNodes[1].innerHTML === json.name) {
