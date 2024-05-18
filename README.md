@@ -18,7 +18,7 @@ Each Pokemon has it's own preview container, which contains a name, a pixelart-i
 To close the popup-Window, use the close-Button in the top-left corner, which looks like an X.
 
 <div align="center">
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/627b6670-ae07-4967-884e-8f6ea73f4e90" width="40%" height="40%" />
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/627b6670-ae07-4967-884e-8f6ea73f4e90" width="50%" height="50%" />
 </div>
 
 ## Use filters in order to search for specific pokemon
