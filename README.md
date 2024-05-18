@@ -26,9 +26,9 @@ You can click each radiobutton to filter for the pokemontype or the pokemonweigh
 
 <div align="center">
  <div float="left">
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/771d94ff-2acf-4c61-bcb6-e58a2a6bdda6" width="20%" height="20%" />
-    <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/8acf2662-bf36-488a-84ee-d589514d7fb5" height="350" width="300" />
-   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/08495102-748e-4368-bcdc-080baf0a8318" width="300" height="350" />
-  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/91ef1972-849c-4b2f-9228-a9bd30f9b6b8" width="300" height="350" />
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/771d94ff-2acf-4c61-bcb6-e58a2a6bdda6" width="30%" height="30%" />
+    <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/8acf2662-bf36-488a-84ee-d589514d7fb5" width="30%" height="30%" />
+   <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/08495102-748e-4368-bcdc-080baf0a8318" width="30%" height="30%" />
+  <img src="https://github.com/LouisLohmer/Pokemon-archive/assets/126259607/91ef1972-849c-4b2f-9228-a9bd30f9b6b8" width="30%" height="30%" />
 </div>
 </div>
