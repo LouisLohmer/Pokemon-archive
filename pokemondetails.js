@@ -62,7 +62,9 @@ function displayPokemondetails(event) {
 
             pokemonWeigth.innerHTML = 'Gewicht:       ' + json.weight / 10 + ' Kg';
         })
-        .catch();
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 function hidePokemondetails() {
